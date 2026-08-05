@@ -1258,6 +1258,26 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=./wp-includes/js/wp-emoji-loader.min.js
 </script>
 
+<script>
+/* Disable YouTube auto-captions on background videos.
+ * The iframe API has no "captions off" init flag, so we repeatedly unload the
+ * caption modules — the interval also covers caption re-enable on video loop. */
+(function () {
+    function stripCaptions() {
+        document.querySelectorAll('iframe[src*="youtube"]').forEach(function (f) {
+            ['captions', 'cc'].forEach(function (mod) {
+                try {
+                    f.contentWindow.postMessage(JSON.stringify(
+                        { event: 'command', func: 'unloadModule', args: [mod] }), '*');
+                    f.contentWindow.postMessage(JSON.stringify(
+                        { event: 'command', func: 'setOption', args: [mod, 'track', {}] }), '*');
+                } catch (e) {}
+            });
+        });
+    }
+    setInterval(stripCaptions, 1000);
+})();
+</script>
 </body>
 </html>
 
