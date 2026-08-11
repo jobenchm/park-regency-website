@@ -150,8 +150,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 				</div>
 				</div>
 				<div data-elementor-type="wp-page" data-elementor-id="19" class="elementor elementor-19" data-elementor-post-type="page">
-				<div class="elementor-element elementor-element-e2c8985 e-con-full e-flex e-con e-child" data-id="e2c8985" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/youtu.be\/mJVuZiK9a6I?si=RBLZuBgLTgXJ-PGw&quot;,&quot;background_video_start&quot;:9,&quot;background_video_end&quot;:87,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}">
-		<div class="elementor-background-video-container">
+				<div class="elementor-element elementor-element-e2c8985 e-con-full e-flex e-con e-child" data-id="e2c8985" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;wp-content\/uploads\/2026\/08\/home-hero.mp4&quot;,&quot;background_video_start&quot;:9,&quot;background_video_end&quot;:87,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}">
+		<div class="elementor-background-video-container"><video class="elementor-background-video-hosted html5-video" autoplay loop muted playsinline></video>
 							<div class="elementor-background-video-embed" role="presentation"></div>
 						</div><div class="elementor-element elementor-element-aa69d1e e-flex e-con-boxed e-con e-child" data-id="aa69d1e" data-element_type="container" data-e-type="container">
 					<div class="e-con-inner">
@@ -248,8 +248,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					</div>
 				</div>
 				</div>
-		<div class="elementor-element elementor-element-a5dfd3d e-con-full elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-id="a5dfd3d" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/youtu.be\/mJVuZiK9a6I?si=RBLZuBgLTgXJ-PGw&quot;,&quot;background_video_start&quot;:9,&quot;background_video_end&quot;:87,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}">
-		<div class="elementor-background-video-container">
+		<div class="elementor-element elementor-element-a5dfd3d e-con-full elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-id="a5dfd3d" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;wp-content\/uploads\/2026\/08\/home-hero.mp4&quot;,&quot;background_video_start&quot;:9,&quot;background_video_end&quot;:87,&quot;background_play_on_mobile&quot;:&quot;yes&quot;,&quot;background_privacy_mode&quot;:&quot;yes&quot;}">
+		<div class="elementor-background-video-container"><video class="elementor-background-video-hosted html5-video" autoplay loop muted playsinline></video>
 							<div class="elementor-background-video-embed" role="presentation"></div>
 						</div><div class="elementor-element elementor-element-b40c24d e-con-full e-flex e-con e-child" data-id="b40c24d" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-28ba77b elementor-widget__width-auto elementor-invisible elementor-widget elementor-widget-text-editor" data-id="28ba77b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
@@ -1258,26 +1258,7 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 //# sourceURL=./wp-includes/js/wp-emoji-loader.min.js
 </script>
 
-<script>
-/* Disable YouTube auto-captions on background videos.
- * The iframe API has no "captions off" init flag, so we repeatedly unload the
- * caption modules — the interval also covers caption re-enable on video loop. */
-(function () {
-    function stripCaptions() {
-        document.querySelectorAll('iframe[src*="youtube"]').forEach(function (f) {
-            ['captions', 'cc'].forEach(function (mod) {
-                try {
-                    f.contentWindow.postMessage(JSON.stringify(
-                        { event: 'command', func: 'unloadModule', args: [mod] }), '*');
-                    f.contentWindow.postMessage(JSON.stringify(
-                        { event: 'command', func: 'setOption', args: [mod, 'track', {}] }), '*');
-                } catch (e) {}
-            });
-        });
-    }
-    setInterval(stripCaptions, 1000);
-})();
-</script>
+
 </body>
 </html>
 
